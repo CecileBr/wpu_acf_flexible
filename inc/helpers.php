@@ -4,13 +4,16 @@
   Get flexible blocks
 ---------------------------------------------------------- */
 
-function get_wpu_acf_flexible_content($group = 'blocks', $mode = 'front', $wpuacfflex_args = array()) {
+function get_wpu_acf_flexible_content($group = 'blocks', $mode = 'front', $wpuacfflex_args = array(), $id = null) {
     global $post, $wpu_acf_flexible;
     if (!is_object($wpu_acf_flexible)) {
         return '';
     }
 
     $opt_group = get_the_ID();
+    if (isset($id)) {
+        $opt_group = $id;
+    }
 
     if (!is_array($wpuacfflex_args)) {
         $wpuacfflex_args = array();
